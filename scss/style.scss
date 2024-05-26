@@ -1,0 +1,275 @@
+/* The version of Bourbon used in this Pen was 4.* */
+@import "bourbon";
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700,500,300);
+
+$a:100%;
+//Colors
+$size-1:17em;
+$size-2:$size-1/6.2;
+$size-3:$size-2*1.6;
+$size-4:$size-3*1.2;
+//Sizes
+$color:#323232;
+$color-2:#f8f8f8;
+$color-3:#dbe0e5;
+$color-4:#8ab0c1;
+$color-5:#fff;
+$color-6:#ededed;
+$color-7:#656b6e;
+$color-8:#2ecc71;
+$color-9:#f1c40f;
+$color-10:#888792;
+//Contents
+
+// Plan 1
+$company-name-1:'Company';
+$company-name-2:'Name';
+
+$plan-name:'Free Plan';
+
+$list-item-1:'4 Social networks';
+$list-item-2:'Statistics';
+$list-item-3:'Manage your social feed';
+
+$button-mention:'More';
+
+// Plan 2
+$b-plan-name:'$5/Month';
+
+$b-list-item-1:'Any Social networks';
+$b-list-item-2:'Statistics / 1 free domain';
+$b-list-item-3:'All social options enabled';
+
+// Plan 3
+$c-plan-name:'$10/Month';
+
+$c-list-item-1:'All social options enabled';
+$c-list-item-2:'Up to 3 free domains';
+$c-list-item-3:'Video chat + screen sharing';
+
+
+*{
+-webkit-font-smoothing:antialiased;
+box-sizing:border-box;}
+html,body{
+width:100%;
+height:100%;
+padding:0;
+margin:0;
+}
+body{
+@include background(linear-gradient( #a9b5b9,  #959aaf) top left);
+font-family:"Raleway",helvetica,sans-serif;
+}
+#container{
+width:$size-1*3+2;
+margin:4em auto;
+}
+.plan{
+  width:$size-1;
+  height:auto;
+  background:$color-2;
+  margin:.4em 0 .4em .4em;
+  float:left;
+  box-shadow:0 0 1em rgba(0,0,0,.15);
+  header{
+    height:$size-2;
+    width:100%;
+    display:block;
+    background:$color;
+    text-align:center;
+    float:left;
+    h2{
+      color:$color-3;
+      text-transform:uppercase;
+      line-height:.2;
+      font-weight:500;
+      &:before{content:$company-name-1;}
+      span{
+        text-transform:capitalize;
+        display:inline-block;
+        color:$color-7;
+        &:after{content:$company-name-2;}
+      }
+    }
+  }//END header
+  
+  .offer{
+    height:$size-3;
+    width:100%;
+    text-align:center;
+    font-size:$size-1/9;
+    line-height:2.4;
+    float:left;
+    text-transform:uppercase;
+    font-weight:600;
+  }//END offer
+.list{
+    width:100%;
+    ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:block;
+      width:$a;
+      float:left;
+      height:auto;
+      overflow:hidden;
+      background:$color-6;
+      li{
+        width:$a;
+        display:block;  
+        height:auto;
+        padding:1.6em;
+        text-align:center;
+        box-shadow:inset 0 -.15em 0 rgba(0,0,0,.1);
+        color:#888792;
+      }
+    }
+  }//END list
+  footer{
+    display:block;
+    float:left;
+    height:$size-4*1.1;
+    width:$a;
+    background:$color-5;
+    border-bottom:$size-4/9 solid $color;
+    padding:1em; 
+    .button{
+      display:block;
+      width:$size-4;
+      margin:$size-2/22.85 auto;
+      padding:$size-4/24; 
+      text-align:center;
+      text-decoration:none;
+      font-size:1.85em;
+      font-weight:400;
+      border-radius:3px;
+      color:$color-5;
+      &:after{content:$button-mention}
+      
+    }
+  }//END footer
+ &.blue{ 
+      background:$color-4;
+      color:$color-5;
+      p:after{content:$plan-name;}
+      .list ul{
+        li{
+          &:nth-child(1):after{content:$list-item-1;}
+          &:nth-child(2):after{content:$list-item-2;}
+          &:nth-child(3):after{content:$list-item-3;}
+        }
+      }
+    }
+  &.green{
+      background:$color-8;
+      color:$color-5;
+      p:after{content:$b-plan-name;}
+      .list ul{      
+        li{
+          &:nth-child(1):after{content:$b-list-item-1;}
+          &:nth-child(2):after{content:$b-list-item-2;}
+          &:nth-child(3):after{content:$b-list-item-3;}
+         }  
+        }
+       }
+  &.gold{
+    background:$color-9;
+    color:$color-5;
+    p:after{content:$c-plan-name;}
+    .list ul{      
+      li{
+       &:nth-child(1):after{content:$c-list-item-1;}
+       &:nth-child(2):after{content:$c-list-item-2;}
+       &:nth-child(3):after{content:$c-list-item-3;}
+      }  
+    }
+  }
+}
+
+.plan.blue{
+  .button{
+        background:$color-4 ;
+   }
+}
+.plan.green{
+  .button{
+        background:$color-8;
+   }
+}
+.plan.gold{
+  .button{
+        background:$color-9;
+   }
+}
+ 
+
+@media all and (max-width:55em){
+   
+  #container{width:100%;}
+  .plan{
+  margin:auto 0;
+  box-shadow:0 0 0 !important;
+  width:33.33%;
+  font-size:.9em !important;
+    &:nth-child(1),&:nth-child(3){ 
+      header{
+        height:$size-2*1.4 !important;
+        h2{display:none;}
+       }  
+      }     
+      &:nth-child(2){
+          header{
+           height:$size-2*1.4 !important;
+        }
+        header{
+          h2{
+            line-height:1;
+          }
+        }
+      }
+    }
+.blue .offer{
+@include background(linear-gradient(left,$color-4,$color-4,$color-4,$color-4,$color-8));
+}
+.green .offer{
+@include background(linear-gradient(left,$color-8,$color-8,$color-8,$color-8,$color-9));
+}
+  .gold .offer{
+@include background(linear-gradient(left,$color-9,$color-9,$color-9,$color-9,$color-9));
+} 
+}
+
+@media all and (max-width:43em){
+  #container{margin:0;}
+   .plan{
+    font-size:1em !important;
+  margin:auto 0;
+  box-shadow:0 0 0 !important;
+    width:100%;
+  border-bottom-size:.2em;
+     &:nth-child(2),&:nth-child(3){ 
+      header{
+      display:none;
+       }  
+      }     
+      &:nth-child(1){
+          header{
+           height:$size-2*1.4 !important;
+          h2{display:block;line-height:1;}
+    }
+  }
+  footer .button{width:92%;margin:.2em 4%;}
+}
+.blue .offer{
+background:$color-4;
+}
+.green .offer{
+background:$color-8;
+}
+  .gold .offer{
+background:$color-9;
+} 
+}
